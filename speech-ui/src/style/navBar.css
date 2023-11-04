@@ -1,0 +1,15 @@
+img{
+    height:50px;
+    width: 80px;
+}
+.profile{
+    border-radius: 50%;
+}
+li{
+    padding-right: 10px;
+    padding-top: 13px;
+    color:white;
+}
+nav{
+    background: linear-gradient(0.25turn, #3f87a6, #f69d3c);
+}
