@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import "../style/signUp.css";
+import NavBar from './NavBar';
 
 function SignUp() {
 
@@ -26,6 +27,7 @@ function SignUp() {
 
   return (
     <>
+    <NavBar />
     <div className="login-container">
       <div className="login-form">
         
