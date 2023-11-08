@@ -2,8 +2,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useState } from 'react';
-import Recording from "./recording"
-import Result from "./results"
+import Recording from "./Recording"
+import Result from "./Results"
 
 function Practise() {
   const [base64, setBase64] = useState('');

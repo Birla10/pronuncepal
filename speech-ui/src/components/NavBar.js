@@ -1,7 +1,5 @@
 import Logo from '../images/logo.jpeg'
 import '../style/navBar.css'
-import Login from './Login'
-import Signup from './Signup'
 
 import { Link } from 'react-router-dom';
 
