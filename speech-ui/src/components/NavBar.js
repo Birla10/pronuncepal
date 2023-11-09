@@ -1,7 +1,7 @@
 import Logo from '../images/logo.jpeg'
 import '../style/navBar.css'
 import Login from './Login'
-import Signup from './Signup'
+import SignUp from './Signup'
 
 import { Link } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ function NavBar() {
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
-                    <Link to="/"><img className="logo" src={Logo} alt="Logo" /></Link>
+                    <img className="logo" src={Logo} alt="Logo" />
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -23,10 +23,10 @@ function NavBar() {
                                     Welcome! UserName
                                 </li>
                                 <li >
-                                    <Link to="/login"> Login </Link>
+                                    Login
                                 </li>
                                 <li >
-                                    <Link to="/signup"> SignUp </Link>
+                                    Signup
                                 </li>
                             </ul>
                         </form>
