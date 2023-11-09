@@ -26,7 +26,7 @@ function Login() {
     <div className="login-container">
       <div className="login-form">
         
-      <center><h1>SignUp</h1></center>
+      <center><h1>Login</h1></center>
       
         <label htmlFor="Email">Email *</label>
         <input
