@@ -1,7 +1,7 @@
 import Logo from '../images/logo.png'
 import '../style/navBar.css'
 import Login from './Login'
-import SignUp from './Signup'
+import SignUp from './SignUp.js'
 
 import { Link } from "react-router-dom";
 
