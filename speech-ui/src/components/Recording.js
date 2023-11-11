@@ -1,8 +1,9 @@
 import { React, useState } from "react";
 import { AudioRecorder } from 'react-audio-voice-recorder';
 
-function Recording(setBase64){
-	function blobToBase64(blob, callback) {
+
+function Recording({setBase64}) {
+    function blobToBase64(blob, callback) {
         const reader = new FileReader();
         reader.onload = function (event) {
             const base64data = event.target.result.split(',')[1];
@@ -24,8 +25,9 @@ function Recording(setBase64){
 
     }
     const start = ()=>{
+        window.alert("Hello")
     }
-    return(
+    return (
         <>
         <br/>
             <div style={{display:"flex",
