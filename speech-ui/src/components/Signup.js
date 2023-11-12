@@ -1,9 +1,9 @@
 import {useState} from 'react';
 import "../style/signUp.css";
+import {Link} from 'react-router-dom'
 import NavBar from './NavBar';
 
 function SignUp() {
-
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
