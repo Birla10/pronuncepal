@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import "../style/signUp.css";
 import NavBar from './NavBar';
-
+import { Link } from 'react-router-dom';
 function SignUp() {
 
 
@@ -66,7 +66,7 @@ function SignUp() {
         <br/>
         <button >SignUp</button>
         <br/>
-        <p>Already a User Login</p>
+        <p>Already a User ?  <Link to="/login" className='link' > Login </Link> </p>
       </div>
     </div>
   </>
