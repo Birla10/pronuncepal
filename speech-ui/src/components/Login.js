@@ -1,6 +1,8 @@
 import {useState} from 'react';
 import "../style/signUp.css";
 import NavBar from './NavBar';
+import { Link } from 'react-router-dom';
+
 
 function Login() {
 
@@ -49,7 +51,7 @@ function Login() {
         <br/>
         <button >Login</button>
         <br/>
-        <p>Don't have an account ? SignUp </p>
+        <p>Don't have an account ? <Link to="/signup" className='link' > SignUp </Link> </p>
       </div>
     </div>
   </>

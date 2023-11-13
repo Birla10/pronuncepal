@@ -37,3 +37,8 @@
     border-radius: 3px;
     cursor: pointer;
   }
+
+  .link{
+    color:#007bff;
+    border-bottom:1px solid #007bff;
+  }
