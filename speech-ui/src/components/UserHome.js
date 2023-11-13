@@ -2,7 +2,7 @@
 import NavBar from "./NavBar";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Practise from "./Practise";
+import Practise from "./practise";
 import Analytics from "./Analytics";
 import History from "./History";
 import { useState } from "react";
