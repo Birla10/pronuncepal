@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express.Router();
 const axios = require('axios')
+const dotenv = require('dotenv')
+dotenv.config()
 app.get('/', async(req, res) => {
     const link = req.body.link;
     const refText = req.body.text;
@@ -13,7 +15,7 @@ app.get('/', async(req, res) => {
         url: 'https://soe1.p.rapidapi.com/api/en-US/word',
         headers: {
             'content-type': 'application/json',
-            'X-RapidAPI-Key': '5c50eb02b8mshaf124ed4cfdc970p186db0jsn97e05a55b5b7',
+            'X-RapidAPI-Key': process.env.APIKEY,
             'X-RapidAPI-Host': 'soe1.p.rapidapi.com'
         },
         data: {
