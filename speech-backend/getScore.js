@@ -1,0 +1,41 @@
+const express = require('express');
+const app = express.Router();
+const axios = require('axios')
+app.get('/', async(req, res) => {
+    const link = req.body.link;
+    const refText = req.body.text;
+    const mode = req.body.mode;
+
+
+    //Example from API provid+er
+    const options = {
+        method: 'POST',
+        url: 'https://soe1.p.rapidapi.com/api/en-US/word',
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': '5c50eb02b8mshaf124ed4cfdc970p186db0jsn97e05a55b5b7',
+            'X-RapidAPI-Host': 'soe1.p.rapidapi.com'
+        },
+        data: {
+            params: {
+                mode: mode,
+                refText: refText
+            },
+            format: 'mp3',
+            sampleRate: 16000,
+            langType: 'en-US',
+            audioLink: link
+        }
+    };
+
+    try {
+        const response = await axios.request(options);
+        console.log(response.data);
+        res.send(response.data)
+    } catch (error) {
+        console.error(error);
+        res.sendStatus(404)
+    }
+
+})
+module.exports = app;
