@@ -12,7 +12,7 @@ app.get('/', async(req, res) => {
     //Example from API provid+er
     const options = {
         method: 'POST',
-        url: 'https://soe1.p.rapidapi.com/api/en-US/word',
+        url: 'https://soe1.p.rapidapi.com/api/en-US/'+mode,
         headers: {
             'content-type': 'application/json',
             'X-RapidAPI-Key': process.env.APIKEY,
