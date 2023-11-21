@@ -7,11 +7,12 @@ app.use(bodyParser.json());
 
 
 
-const loginRoute = require('./loginRoute');
-
+const loginRoute = require('./loginRoute'); 
+const signupRoute = require('./signupRoute');
 
 
 app.use('/login',loginRoute)
+app.use('/signup',signupRoute)
 
 app.listen(process.env.PORT,()=>{
     console.log("Listening on Port 8080")
