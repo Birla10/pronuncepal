@@ -1,10 +1,16 @@
 import {useState} from 'react';
 import "../style/signUp.css";
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import NavBar from './NavBar';
-import { Link } from 'react-router-dom';
+import axios from "axios" 
 function SignUp() {
-
+  const navigate = useNavigate();
+  const warnStyle = {
+    borderColor:"red",
+  }
+  const normalStyle = {
+    borderColor:"#ccc"
+  }
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -71,18 +77,22 @@ function SignUp() {
     const handleSignUp = () => {
       if(userCheck && emailCheck && passCheck && repassCheck){
   
-        alert("User Register Please Login")
+        
         const signUpBackend = async () => {
-        const result = await fetch('http://localhost:8080/signup/'+ {username} + '/'+ {email} + '/'+ {password} + '/'+ {retype}  )
-        const data = await result.json()
-        console.log(data.hello + "   hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+      const result = await axios.post('http://localhost:8080/signup',{email,username,password})
+      if(result.data.Status === "User alraedy Found"){
+        alert("Email already registered, Try another Mail Id")
+        navigate("/login");
       }
-      
+      if(result.data.Status === "User Registration Successfull"){
+        alert("User Registration Successfull please Login");
+        navigate("/login");
+      }
+      console.log(result.data)
+      }
       signUpBackend()
-      
-      console.log('Logging in with username:', username, 'and password:', password);
-      }
-      else{
+    }
+        else{
         alert("Please Check the Red Warnings and fill the form Accordingly")
       }
     };
@@ -96,21 +106,21 @@ function SignUp() {
       <center><h1>SignUp</h1></center>
       <label htmlFor="username">Username *</label>
         <input
-       
+          style={userStyle}
           type="text"
           id="username"
           value={username}
           onChange={setUser}
         /><label htmlFor="Email">Email *</label>
         <input
-        
+          style={emailStyle}
           type="text"
           id="Email"
           value={email}
           onChange={setMail} 
         /><label htmlFor="password">Password *</label>
         <input
-          
+          style={passStyle}
           type="password"
           id="password"
           value={password}
@@ -119,14 +129,14 @@ function SignUp() {
 
         <label htmlFor="retype">Re-Enter  Password *</label>
         <input
-         
+          style={rePassStyle}
           type="password"
           id="retype"
           value={retype}
           onChange={setRePass}
         />
         <br/>
-        <button >SignUp</button>
+        <button onClick={handleSignUp}>SignUp</button>
         <br/>
         <p>Already a User ?  <Link to="/login" className='link' > Login </Link> </p>
       </div>
