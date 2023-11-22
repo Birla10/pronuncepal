@@ -10,12 +10,16 @@ app.use(cors({
   }))
 
 
-const loginRoute = require('./loginRoute');
+
+const loginRoute = require('./loginRoute'); 
+const signupRoute = require('./signupRoute');
 const getScore = require('./getScore')
 
 
 app.use('/login',loginRoute)
+app.use('/signup',signupRoute)
 app.use('/score',getScore)
+
 
 app.listen(process.env.PORT,()=>{
     console.log("Listening on Port 8080")
