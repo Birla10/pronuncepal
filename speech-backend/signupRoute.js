@@ -15,18 +15,18 @@ app.post("/",(req,res)=>{
             console.log("User Already in Database")
             res.send({"Status" :"User already Found"})
         }
+        else {
+            const insertQuery = "INSERT INTO users (name,email,password) VALUES ('" + username + "','" + email + "','" + password + "')";
+            connection.query(insertQuery, (error, results, fields) => {
+                if (error) {
+                    console.log("Error Occured", error);
+                    res.send(500);
+                } else {
+                    console.log('user inserted')
+                    res.send({"Status":"User Registration Successfull"})
+                }
     })
-    console.log("helooooo")
-    const query = "INSERT INTO users (name,email,password) VALUES ('" + username + "','" + email + "','" + password + "')";
-    connection.query(query,(error,results,fields)=>{
-        if(error){
-            console.log("helooooo")
-            res.sendStatus(404);
-        }
-            console.log("Data Inserted Successfully.");
-            res.send({"Status" :"User Registration Successful"})
-        
-    })
+}
 })
-
+})
 module.exports = app;
