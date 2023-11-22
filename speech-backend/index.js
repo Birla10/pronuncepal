@@ -1,10 +1,13 @@
 const express = require('express');
 const app = express()
-const dotenv=require('dotenv')
+const dotenv = require('dotenv')
+const cors = require('cors')
 dotenv.config()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
-
+app.use(cors({
+    origin:'*'
+  }))
 
 
 const loginRoute = require('./loginRoute');
