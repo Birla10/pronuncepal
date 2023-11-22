@@ -11,12 +11,18 @@ app.use(cors({
 
 
 
-const loginRoute = require('./loginRoute'); 
+
+const loginRoute = require('./loginRoute');
+const analyticsLine = require('./analyticsLine');
+const analyticsBar = require('./analyticsBar');
 const signupRoute = require('./signupRoute');
 const getScore = require('./getScore')
 
 
+
 app.use('/login',loginRoute)
+app.use('/analyticsLine',analyticsLine)
+app.use('/analyticsBar',analyticsBar)
 app.use('/signup',signupRoute)
 app.use('/score',getScore)
 
