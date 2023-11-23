@@ -20,10 +20,8 @@ CREATE TABLE results (
 
 
 User analytics will be available for only latest 5 days
-SELECT overall_score
-FROM results
-ORDER BY result_date DESC LIMIT 5;
+SELECT overall_score from results WHERE user_email = ? ORDER BY result_date DESC LIMIT 5;
 
 
 User history for last 10 records will be displayed
-SELECT *from results ORDER BY result_date DESC LIMIT 10;
+SELECT *from results WHERE user_email = ? ORDER BY result_date DESC LIMIT 10;
