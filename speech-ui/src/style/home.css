@@ -2,13 +2,14 @@
     display: flex;
 }
 .home-image{
-    width: 700px;
-    height: 70vh;
+    width: 600px;
+    height: 75vh;
 
 }
 .text-home{
     font-size: 60px;
-    padding-top: 15vh;
+    padding-top: 11vh;
+    color: black;
 }
 .button-home{
     background-color: white;

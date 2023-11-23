@@ -33,10 +33,10 @@ function NavBar() {
             <form className="d-flex" role="search">
               <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
                 <li>
-                  <Link to="/login"> Login </Link>
+                  <Link to="/login"> LOGIN </Link>
                 </li>
                 <li>
-                  <Link to="/signup"> SignUp </Link>
+                  <Link to="/signup"> SIGNUP </Link>
                 </li>
               </ul>
             </form>
