@@ -6,7 +6,7 @@ const connection = require('./connection')
 app.post('/', async (req,res)=>{
     const email = req.body.username;
     const password = req.body.password;
-    const query = "SELECT * FROM users WHERE email  like '" + email + "' AND password = '" + password + "'";
+    const query = "SELECT * FROM users WHERE email  = '" + email + "' AND password = '" + password + "'";
     
     connection.query(query,(error,results,fields) => {
         if(error){
@@ -16,7 +16,7 @@ app.post('/', async (req,res)=>{
             res.send({"email":email,"name":results[0].name})
         }
         else{
-            res.send("null")
+            res.send("Not a valid User")
         }
     })
 
