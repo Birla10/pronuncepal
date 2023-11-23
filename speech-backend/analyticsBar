@@ -1,0 +1,18 @@
+const express = require('express');
+const app = express.Router();
+const connection = require('./connection')
+
+app.post('/',(req,res)=>{
+    const mail = req.body.email
+    const query = "SELECT dateUpload,COUNT(*) AS 'Number Of Tries' FROM userData WHERE email = '" + mail +"' GROUP BY dateUpload ORDER BY dateUpload DESC limit 5"
+    connection.query(query,(error,results,fields)=>{
+      if(error){
+        console.log(error)
+      }
+      else{
+        res.send(results)
+      }
+    })
+    
+  })
+module.exports=app;

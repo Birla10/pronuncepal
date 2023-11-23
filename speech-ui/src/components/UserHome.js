@@ -6,11 +6,22 @@ import Practise from "./Practise";
 import Analytics from "./Analytics";
 import History from "./History";
 import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import Login from './Login'
 
 import "../style/UserHome.css";
+import Footer from "./Footer";
 
 function UserHome(){
+    const nagivation = useNavigate()
     const [key, setKey] = useState('practise');
+    if(sessionStorage.getItem('email') === null){
+      return(
+        
+      <Navigate to='/login'/>
+      )
+    }
+    console.log(sessionStorage.getItem('email'))
     return(
         <>
             <NavBar />
@@ -27,10 +38,13 @@ function UserHome(){
         <Analytics />
       </Tab>
       <Tab eventKey="history" title="History">
-        <History />
+        {/* <History /> */}
       </Tab>
       
     </Tabs>
+    <Footer>
+
+    </Footer>
         </>
     )
 }
