@@ -3,6 +3,7 @@ import "../style/signUp.css";
 import {Link,useNavigate} from 'react-router-dom'
 import NavBar from './NavBar';
 import axios from "axios" 
+import Footer from './Footer';
 function SignUp() {
   const navigate = useNavigate();
   const warnStyle = {
@@ -137,10 +138,11 @@ function SignUp() {
         />
         <br/>
         <button onClick={handleSignUp}>SignUp</button>
-        <br/>
+        
         <p className='navigater'>Already a User ?  <Link to="/login" className='link' > Login </Link> </p>
       </div>
     </div>
+    <Footer/>
   </>
   );
 }

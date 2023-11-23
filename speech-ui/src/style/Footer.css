@@ -1,0 +1,12 @@
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top: solid rgba(0, 0, 0, 0.033) ;
+}
+.footer p{
+    text-align: center;
+    width: 100%;
+    color: black;
+}
