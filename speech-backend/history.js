@@ -5,7 +5,7 @@ const connection = require('./connection')
 
 app.get('/history/:mail',(req,res)=>{
     const mail = req.params.mail
-    const query = "SELECT * FROM appdata WHERE mail = '" + mail +"' ORDER BY uploadDate DESC, uploadTime DESC";
+    const query = "SELECT *from results where user_email ='" +mail+ "' ORDER BY result_date DESC LIMIT 10";
     connection.query(query,(error,results,fields)=>{
       if(error){
         console.log(error)
