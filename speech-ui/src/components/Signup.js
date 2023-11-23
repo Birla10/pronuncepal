@@ -138,7 +138,7 @@ function SignUp() {
         <br/>
         <button onClick={handleSignUp}>SignUp</button>
         <br/>
-        <p>Already a User ?  <Link to="/login" className='link' > Login </Link> </p>
+        <p className='navigater'>Already a User ?  <Link to="/login" className='link' > Login </Link> </p>
       </div>
     </div>
   </>
