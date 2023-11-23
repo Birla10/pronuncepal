@@ -2,7 +2,7 @@
 import NavBar from "./NavBar";
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Practise from "./practise";
+import Practise from "./Practise";
 import Analytics from "./Analytics";
 import History from "./History";
 import { useState } from "react";
@@ -10,6 +10,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Login from './Login'
 
 import "../style/UserHome.css";
+import Footer from "./Footer";
 
 function UserHome(){
     const nagivation = useNavigate()
@@ -41,6 +42,9 @@ function UserHome(){
       </Tab>
       
     </Tabs>
+    <Footer>
+
+    </Footer>
         </>
     )
 }

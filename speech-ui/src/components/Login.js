@@ -5,6 +5,7 @@ import { Link, Navigate } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import UserHome from './UserHome';
+import Footer from './Footer';
 
 
 function Login() {
@@ -103,6 +104,7 @@ function Login() {
           <p className='navigater'>Don't have an account ? <Link to="/signup" className='link' > SignUp </Link> </p>
         </div>
       </div>
+      <Footer/>
     </>
   );
   }
