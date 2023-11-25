@@ -1,40 +1,44 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
-import Recording from "./Recording"
-import Result from "./Results"
+import {useState} from 'react';
+import Recording from "./recording"
+import Result from "./results"
 
 function Practise() {
-  const [base64, setBase64] = useState('');
-  const [input, setInput] = useState('');
-  const inputChange = event => {
-    setInput(event.target.value);
-    console.log(event.target.value);
-  }
+    const [results,setResults] = useState(null);
+    const [input,setInput] = useState('');
+    const [text,setText] = useState(false);
+    const inputChange = event => {
+        if((event.target.value).trim() != ''){
+          setText(true)
+        }
+        else{
+          setText(false)
+        }
+        setInput(event.target.value);
+    }
   return (
     <Container>
       <Row>
-        <Col>
-          <br /><br /> <center>
-            <label>Type something and hit the mic button to start the recording</label>
-            <br /><br />
-
-            <textarea id="w3review"
-              name="w3review"
-              value={input}
-              onChange={inputChange}
-              rows="10"
-              cols="50">
-            </textarea>
-            <br />
-
-            <Recording setBase64={setBase64} /> 
-            </center>
+        <Col style={{"width":"60%","overflow":"hidden"}}>
+        <br />
+        <label>Type something and hit the mic button to start the recording</label>
+        <br /><br />
+        <center>
+        <textarea id="w3review" 
+                  name="w3review" 
+                  value = {input}
+                  onChange={inputChange}
+                  rows="10" 
+                  cols="50">
+       </textarea>
+       </center>
+        <Recording input = {input} setResults={setResults} textBool={text}/>
         </Col>
-        <Col><Result base64={base64} /></Col>
+        <Col><Result results={results}/></Col>
       </Row>
-
+      
     </Container>
   );
 }
