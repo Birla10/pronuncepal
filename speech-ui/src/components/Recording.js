@@ -45,16 +45,16 @@ function Recording({setResults,input,textBool}){
         <br/>
             <div style={{display:"flex",
                          marginLeft:"80px"}}>
-                <AudioRecorder
+                {textBool && <AudioRecorder
                     onRecordingComplete={addAudioElement}
                                        
                     showVisualizer={true}
                     downloadOnSavePress={false}
                     downloadFileExtension="webm"
                 >
-                </AudioRecorder>
-                <audio style={{marginLeft:"40px"}}controls id="audio"  disabled={textBool}>
-                </audio>
+                </AudioRecorder>}
+                {textBool && <audio style={{marginLeft:"40px"}}controls id="audio">
+                </audio>}
             </div>
             <br/>
             {textBool && enableButton && <center><button onClick={handleSubmit}>Score my Recording</button></center>}
