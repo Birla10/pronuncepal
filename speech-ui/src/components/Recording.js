@@ -32,11 +32,13 @@ function Recording({setResults,input,textBool}){
             const link = responseS3.data.Link;
             const text = input;
             const responseAPI = await axios.post("http://localhost:8080/getResults",{baseData,text})
+            const score = responseAPI.data.text_score.speechace_score.pronunciation;
+            const responseUpload = await axios.post("http://localhost:8080/uploadData",{email,link,score,text})
             setResults(responseAPI.data)
             setBaseData('')
         }
         else{
-            console.log("Record the audio again")
+            alert("Record the audio again")
         }
 
     }
