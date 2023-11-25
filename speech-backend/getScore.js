@@ -3,6 +3,7 @@ const app = express.Router();
 const axios = require('axios')
 const dotenv = require('dotenv')
 dotenv.config()
+//This is getting results from SOE API
 app.get('/', async(req, res) => {
     const link = req.body.link;
     const refText = req.body.text;
