@@ -1,7 +1,11 @@
 import { React, useState } from "react";
 import { AudioRecorder } from 'react-audio-voice-recorder';
+import axios from "axios";
 
-function Recording({setBase64}){
+function Recording({setResults,input,textBool}){
+    const [baseData,setBaseData] = useState('')
+    const [enableButton,setEnableButton] = useState(false)
+    const email = sessionStorage.getItem('email')
     function blobToBase64(blob, callback) {
         const reader = new FileReader();
         reader.onload = function (event) {
@@ -11,16 +15,29 @@ function Recording({setBase64}){
         reader.readAsDataURL(blob);
     }
     const addAudioElement = (blob) => {
+        setEnableButton(true)
         const url = URL.createObjectURL(blob);
         const audio = document.getElementById("audio");
         audio.src = url;
         blobToBase64(blob, function (base64data) {
-            setBase64(base64data);
+            setBaseData(base64data)
             // console.log(base64data);
         });
         audio.controls = true;
     };
-    const handleSubmit = ()=>{
+    const handleSubmit = async ()=>{
+        if(baseData !== '' && input !== ''){
+            const responseS3 = await axios.post("http://localhost:8080/uploadS3",{email,baseData})
+            console.log(responseS3.data)
+            const link = responseS3.data.Link;
+            const text = input;
+            const responseAPI = await axios.post("http://localhost:8080/getResults",{baseData,text})
+            setResults(responseAPI.data)
+            setBaseData('')
+        }
+        else{
+            console.log("Record the audio again")
+        }
 
     }
     return(
@@ -36,11 +53,11 @@ function Recording({setBase64}){
                     downloadFileExtension="webm"
                 >
                 </AudioRecorder>
-                <audio style={{marginLeft:"40px"}}controls id="audio">
+                <audio style={{marginLeft:"40px"}}controls id="audio"  disabled={textBool}>
                 </audio>
             </div>
             <br/>
-            <center><button onClick={handleSubmit}>Score my Recording</button></center>
+            {textBool && enableButton && <center><button onClick={handleSubmit}>Score my Recording</button></center>}
         </>
     )
 }

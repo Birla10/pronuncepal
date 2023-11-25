@@ -11,7 +11,7 @@ AWS.config.update({
 const s3 = new AWS.S3();
 app.post('/', (req, res) => {
     const folder = req.body.email;
-    const base64 = req.body.base64;
+    const base64 = req.body.baseData;
     const date = new Date();
     const fileName = date.getHours().toString() + "-" + date.getMinutes().toString() + "-" + date.getSeconds().toString();
 
