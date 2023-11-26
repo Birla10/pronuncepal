@@ -13,7 +13,6 @@ import "../style/UserHome.css";
 import Footer from "./Footer";
 
 function UserHome(){
-    const nagivation = useNavigate()
     const [key, setKey] = useState('practise');
     if(sessionStorage.getItem('email') === null){
       return(
