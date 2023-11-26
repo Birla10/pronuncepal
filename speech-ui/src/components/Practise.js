@@ -4,11 +4,19 @@ import Col from 'react-bootstrap/Col';
 import {useState} from 'react';
 import Recording from "./Recording"
 import Result from "./Results"
+import SpinnerComp from './SpinnerComp';
 
 function Practise() {
     const [results,setResults] = useState(null);
     const [input,setInput] = useState('');
     const [text,setText] = useState(false);
+    const [spinner,setSpinner] = useState(false);
+    if(spinner){
+      return (
+        <SpinnerComp />
+      )
+    }
+    
     const inputChange = event => {
         if((event.target.value).trim() != ''){
           setText(true)
@@ -34,7 +42,7 @@ function Practise() {
                   cols="50">
        </textarea>
        </center>
-        <Recording input = {input} setResults={setResults} textBool={text}/>
+        <Recording input = {input} setResults={setResults} textBool={text} setSpinner = {setSpinner}/>
         </Col>
         <Col><Result results={results}/></Col>
       </Row>

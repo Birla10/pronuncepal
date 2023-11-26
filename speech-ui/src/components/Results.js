@@ -28,7 +28,7 @@ function Results({results}) {
                             results.text_score.word_score_list.map((element, i) => {
                                 return (
                                     <>
-                                        <b><div>{element.word} : {element.quality_score}</div></b>
+                                        <b><div key={i}>{element.word} : {element.quality_score}</div></b>
                                         <div>Syllable Level Scoring</div>
                                         {element.syllable_score_list.map((innerElement, j) => {
                                             return (

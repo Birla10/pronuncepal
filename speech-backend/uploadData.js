@@ -8,11 +8,12 @@ app.post('/',(req,res)=>{
     const link = req.body.link;
     const score = req.body.score;
     const refText = req.body.text;
-    const query = "INSERT INTO userData  VALUES ('" + email + "','" + link + "'," + score + ",'"+ refText +"',CURRENT_DATE,CURRENT_TIME )"
+    const query = "INSERT INTO results  VALUES ('" + email + "','" + link + "'," + score + ",'"+ refText +"',CURRENT_DATE,CURRENT_TIME )"
     console.log(query )
     connection.query(query,(error,results,fields)=>{
         if(error){
             console.log(error)
+            res.send({"Status":"error"})
         }
         else{
             res.send({"Status":"Successs"})

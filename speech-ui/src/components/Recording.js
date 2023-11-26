@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import { AudioRecorder } from 'react-audio-voice-recorder';
 import axios from "axios";
 
-function Recording({setResults,input,textBool}){
+function Recording({setResults,input,textBool,setSpinner}){
     const [baseData,setBaseData] = useState('')
     const [enableButton,setEnableButton] = useState(false)
     const email = sessionStorage.getItem('email')
@@ -27,19 +27,30 @@ function Recording({setResults,input,textBool}){
     };
     const handleSubmit = async ()=>{
         if(baseData !== '' && input !== ''){
+            try{
+                setSpinner(true)
             const responseS3 = await axios.post("http://localhost:8080/uploadS3",{email,baseData})
             console.log(responseS3.data)
             const link = responseS3.data.Link;
             const text = input;
             const responseAPI = await axios.post("http://localhost:8080/getResults",{baseData,text})
+            console.log(responseAPI.data)
             const score = responseAPI.data.text_score.speechace_score.pronunciation;
             const responseUpload = await axios.post("http://localhost:8080/uploadData",{email,link,score,text})
             setResults(responseAPI.data)
             setBaseData('')
+            setSpinner(false)
+            }
+            catch(error){
+                alert("Something went wrong try again")
+                console.log(error)
+                setSpinner(false)
+            }
         }
         else{
             alert("Record the audio again")
         }
+        setSpinner(false)
 
     }
     return(
