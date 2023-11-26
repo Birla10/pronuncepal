@@ -38,7 +38,8 @@ function UserHome(){
         <Analytics />
       </Tab>
       <Tab eventKey="history" title="History">
-        <History />
+        {/* <History /> */}
+        
       </Tab>
       
     </Tabs>

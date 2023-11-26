@@ -10,28 +10,34 @@ function Analytics(){
   const [barGraph, setbarGraph] = useState([]);
     
     const email = sessionStorage.getItem('email')
-    useEffect( () => { 
-      async function fetchData() {
-          try {
-              const res = await axios.post('http://localhost:8080/analyticsLine',{email}); 
-              setlineGraph(res.data);
-          } catch (err) {
-              console.log(err);
-          }
-      }
-      fetchData();
-  }, []);
-  useEffect( () => { 
-    async function fetchData() {
-        try {
-            const res = await axios.post('http://localhost:8080/analyticsBar',{email}); 
-            setbarGraph(res.data);
-        } catch (err) {
-            console.log(err);
-        }
-    }
-    fetchData();
-}, []);
+    useEffect(() => {
+        const interval = setInterval(() => {
+                async function fetchData() {
+                    try {
+                      
+            const email = sessionStorage.getItem('email')
+                        const res = await axios.post('http://localhost:8080/analyticsLine',{email}); 
+                        setlineGraph(res.data);
+                    } catch (err) {
+                        console.log(err);
+                    }
+                }
+                fetchData();
+                async function fetchBar() {
+                  try {
+                    
+            const email = sessionStorage.getItem('email')
+                      const res = await axios.post('http://localhost:8080/analyticsBar',{email}); 
+                      setbarGraph(res.data);
+                  } catch (err) {
+                      console.log(err);
+                  }
+              }
+              fetchBar();
+          
+        }, 5000);
+        return () => clearInterval(interval);
+      }, []);
 
     return(
         <>
