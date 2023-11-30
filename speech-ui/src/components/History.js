@@ -9,7 +9,7 @@ function History() {
   const mail = localStorage.getItem('mail')
     useEffect(()=>{
       async function fetchData(){
-        const res = await axios.get('https://localhost/history/'+mail)
+        const res = await axios.get('https://44.211.21.6/history/'+mail)
         setHistory(res.data)
       
       }
