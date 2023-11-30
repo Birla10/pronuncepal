@@ -55,7 +55,7 @@ function Login() {
 
   const handleLogin = async () => {
     try{
-      const loginResponse = await axios.post('https://44.211.21/login',{username,password})
+      const loginResponse = await axios.post('https://44.211.21.6/login',{username,password})
       if(loginResponse.data === "Not a valid User"){
         alert("Wrong User name or Password")
       }
