@@ -29,14 +29,14 @@ function Recording({setResults,input,textBool,setSpinner}){
         if(baseData !== '' && input !== ''){
             try{
                 setSpinner(true)
-            const responseS3 = await axios.post("http://44.211.21.6:8080/uploadS3",{email,baseData})
+            const responseS3 = await axios.post("https://44.211.21.6/uploadS3",{email,baseData})
             console.log(responseS3.data)
             const link = responseS3.data.Link;
             const text = input;
-            const responseAPI = await axios.post("http://44.211.21.6:8080/getResults",{baseData,text})
+            const responseAPI = await axios.post("https://44.211.21.6/getResults",{baseData,text})
             console.log(responseAPI.data)
             const score = responseAPI.data.text_score.speechace_score.pronunciation;
-            const responseUpload = await axios.post("http://44.211.21.6:8080/uploadData",{email,link,score,text})
+            const responseUpload = await axios.post("https://44.211.21.6/uploadData",{email,link,score,text})
             setResults(responseAPI.data)
             setBaseData('')
             setSpinner(false)

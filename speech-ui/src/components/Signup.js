@@ -80,7 +80,7 @@ function SignUp() {
   
         
         const signUpBackend = async () => {
-      const result = await axios.post('http://44.211.21.6:8080/signup',{email,username,password})
+      const result = await axios.post('https://44.211.21.6/signup',{email,username,password})
       if(result.data.Status === "User alraedy Found"){
         alert("Email already registered, Try another Mail Id")
         navigate("/login");

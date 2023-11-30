@@ -16,7 +16,7 @@ function Analytics(){
                     try {
                       
             const email = sessionStorage.getItem('email')
-                        const res = await axios.post('http://44.211.21.6:8080/analyticsLine',{email}); 
+                        const res = await axios.post('https://44.211.21.6/analyticsLine',{email}); 
                         setlineGraph(res.data);
                     } catch (err) {
                         console.log(err);
@@ -27,7 +27,7 @@ function Analytics(){
                   try {
                     
             const email = sessionStorage.getItem('email')
-                      const res = await axios.post('http://44.211.21.6:8080/analyticsBar',{email}); 
+                      const res = await axios.post('https://44.211.21.6/analyticsBar',{email}); 
                       setbarGraph(res.data);
                   } catch (err) {
                       console.log(err);
