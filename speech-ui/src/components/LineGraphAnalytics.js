@@ -8,19 +8,26 @@ import {
     LineChart
   } from "recharts";
 function LineGraphAnalytics({lineData}){
-    
+  
+  const generateDataWithSerialNumbers = (lineData) => {
+    return lineData.map((entry, index) => ({
+      ...entry,
+      serialNumber: index + 1,
+    }));
+  };
 
+  const dataWithSerialNumbers = generateDataWithSerialNumbers(lineData);
 
     return(
 
         <>
         <br/><br/>
-        <center> <h4>Analysis Of Last Five Day Practise</h4></center>
+        <center> <h4>Analysis Of Last Five Practises</h4></center>
         <br/><br/>
             <LineChart
           width={500}
           height={300}
-          data={lineData}
+          data={dataWithSerialNumbers}
           margin={{
             top: 5,
             right: 30,
@@ -29,8 +36,8 @@ function LineGraphAnalytics({lineData}){
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="marks" />
-          <YAxis />
+          <XAxis dataKey="index" label={{ value: 'Tries', position: 'insideBottom', offset: 0 }} />
+          <YAxis label={{ value: 'Marks', angle: -90, position: 'insideLeft' }} />
           <Tooltip />
           <Legend />
           <Line type="monotone" dataKey="marks" stroke="#8884d8" activeDot={{ r: 8 }} />

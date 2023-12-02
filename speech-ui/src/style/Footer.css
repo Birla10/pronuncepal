@@ -1,9 +1,9 @@
+
 .footer{
     position:absolute;
-    bottom:0;
     width:100%;
+    height: fit-content;
     background-color: rgba(0, 0, 0, 0.1);
-    border-top: solid rgba(0, 0, 0, 0.033) ;
 }
 .footer p{
     text-align: center;

@@ -10,7 +10,6 @@ import { Navigate, useNavigate } from "react-router-dom";
 import Login from './Login'
 
 import "../style/UserHome.css";
-import Footer from "./Footer";
 
 function UserHome(){
     const [key, setKey] = useState('practise');
@@ -42,10 +41,7 @@ function UserHome(){
       </Tab>
       
     </Tabs>
-    <Footer>
-
-    </Footer>
-        </>
+    </>
     )
 }
 export default UserHome;

@@ -13,7 +13,7 @@ function BarGraphAnalytics({barData}) {
     return (
         <>
             <br /><br />
-            <center> <h4>Analysis Of last five tries</h4></center>
+            <center> <h4>Number of Practices in Last Five Days</h4></center>
             <br /><br />
             <BarChart
                 width={500}
@@ -31,8 +31,10 @@ function BarGraphAnalytics({barData}) {
                     dataKey="dateUpload"
                     scale="point"
                     padding={{ left: 10, right: 10 }}
+                    label={{ value: 'Date', position: 'insideBottom', offset: 0 }} 
+                    
                 />
-                <YAxis />
+                <YAxis label={{ value: 'No.of Tries', angle: -90, position: 'insideLeft' }}/>
                 <Tooltip />
                 <Legend />
                 <CartesianGrid strokeDasharray="3 3" />

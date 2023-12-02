@@ -3,12 +3,13 @@ const app = express.Router();
 const connection = require('./connection')
 
 
-app.get('/history/:mail',(req,res)=>{
-    const mail = req.params.mail
-    const query = "SELECT *from results where user_email ='" +mail+ "' ORDER BY result_date DESC LIMIT 10";
+app.post('/',(req,res)=>{
+    const mail = req.body.mail
+    const query = "SELECT * FROM results WHERE email = '" + mail +"' ORDER BY dateUpload DESC, timeUpload DESC";
     connection.query(query,(error,results,fields)=>{
       if(error){
         console.log(error)
+        res.send(500)
       }
       else{
         res.send(results)
@@ -16,5 +17,4 @@ app.get('/history/:mail',(req,res)=>{
     })
     
   })
-  module.exports = app;
-  
+  module.exports=app;

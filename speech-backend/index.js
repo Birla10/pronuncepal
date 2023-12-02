@@ -30,7 +30,7 @@ const getScore = require('./getScore') //getting results from SOE API
 const getResults = require('./getResuls') // getting results from Speechace API
 const uploadData = require('./uploadData')
 const healthChecks = require('./healthCheckRoute');
-
+const history = require('./history');
 
 
 
@@ -42,6 +42,7 @@ app.use('/signup',signupRoute)
 app.use('/score',getScore)
 app.use('/getResults',getResults)
 app.use('/uploadData',uploadData)
+app.use('/history',history)
 app.use('/',healthChecks)
 
 

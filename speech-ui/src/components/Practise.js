@@ -31,7 +31,7 @@ function Practise() {
       <Row>
         <Col style={{"width":"60%","overflow":"hidden"}}>
         <br />
-        <label>Type something and hit the mic button to start the recording</label>
+        <p>Type something and hit the mic button to start the recording</p>
         <br /><br />
         <center>
         <textarea id="w3review" 
