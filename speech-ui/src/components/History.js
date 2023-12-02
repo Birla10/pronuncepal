@@ -40,7 +40,7 @@ function History() {
           <tr key={count}>
           <td>{count++}</td>
           <td>{record.refText}</td>
-          <td>{record.link}</td>
+          <td><audio controls src={record.link}></audio></td>
           <td>{record.score}</td>
           <td>{record.dateUpload}</td>
           
