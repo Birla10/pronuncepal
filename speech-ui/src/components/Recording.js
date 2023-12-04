@@ -25,6 +25,23 @@ function Recording({setResults,input,textBool,setSpinner}){
         });
         audio.controls = true;
     };
+    const updateScore = (score) =>{
+        if(score>90){
+            return "Excellent"
+        }
+        else if(score >80){
+            return "Very Good"
+        }
+        else if(score > 70){
+            return "Good"
+        }
+        else if(score >60){
+            return "Average"
+        }
+        else{
+            return "Poor"
+        }
+    }
     const handleSubmit = async ()=>{
         if(baseData !== '' && input !== ''){
             try{
@@ -35,7 +52,8 @@ function Recording({setResults,input,textBool,setSpinner}){
             const text = input;
             const responseAPI = await axios.post("https://44.211.21.6/getResults",{baseData,text})
             console.log(responseAPI.data)
-            const score = responseAPI.data.text_score.speechace_score.pronunciation;
+            const numScore = responseAPI.data.text_score.speechace_score.pronunciation;
+            const score = updateScore(numScore)
             const responseUpload = await axios.post("https://44.211.21.6/uploadData",{email,link,score,text})
             setResults(responseAPI.data)
             setBaseData('')
