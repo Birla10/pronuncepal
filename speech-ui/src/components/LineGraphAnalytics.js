@@ -9,15 +9,16 @@ import {
   } from "recharts";
 function LineGraphAnalytics({lineData}){
   
-  const generateDataWithSerialNumbers = (lineData) => {
-    return lineData.map((entry, index) => ({
+  const reversedData = [...lineData].reverse();
+  const generateDataWithSerialNumbers = (reversedData) => {
+    return reversedData.map((entry, index) => ({
       ...entry,
-      serialNumber: index + 1,
+      index: index + 1,
     }));
   };
 
-  const dataWithSerialNumbers = generateDataWithSerialNumbers(lineData);
-
+  const dataWithSerialNumbers = generateDataWithSerialNumbers(reversedData);
+  console.log(dataWithSerialNumbers)
     return(
 
         <>
