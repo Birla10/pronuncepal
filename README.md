@@ -25,9 +25,9 @@ Above steps will start the ReactJS and should open a Browser with the UI display
 
 Sample input: Record a Word or Sentence by entering a Reference text and then pressing the record button ( Ex: Hello World )
 Sample output: 
+    
     Overall Score : 97
     IELTS Score : 8.5
-
     Word level Scoring:
 	      Hello : 95
 	      Syllable Level Scoring
